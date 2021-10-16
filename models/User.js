@@ -5,6 +5,10 @@ const user_schema = new Schema({
     type: "String",
     required: true,
   },
+  avatar: {
+    type: "String",
+    default: null,
+  },
   first_name: {
     type: "String",
     required: true,

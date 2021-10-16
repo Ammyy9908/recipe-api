@@ -6,8 +6,8 @@ const recipie_schema = new Schema(
       type: "String",
       required: true,
     },
-    snaps: {
-      type: "Array",
+    snap: {
+      type: "String",
       required: true,
     },
     description: {
@@ -19,20 +19,28 @@ const recipie_schema = new Schema(
       required: true,
     },
     servings: {
-      type: "Object",
+      type: "String",
       required: true,
     },
     ingredients: {
-      type: "Object",
+      type: "Array",
       required: true,
     },
     methods: {
-      type: "Object",
+      type: "Array",
       required: true,
     },
     publish_by: {
       type: "String",
       required: true,
+    },
+    ratings: {
+      type: "Number",
+      default: 0,
+    },
+    liked_by: {
+      type: "Array",
+      default: [],
     },
   },
   { timestamps: true }

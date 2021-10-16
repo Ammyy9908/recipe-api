@@ -1,9 +1,10 @@
 {
   "name": "recipe-api",
   "version": "1.0.0",
-  "repository":{
+  "repository": {
     "type": "git",
-    "url":"https://github.com/Ammyy9908/recipe-api"},
+    "url": "https://github.com/Ammyy9908/recipe-api"
+  },
   "description": "A Recipe Rest API Gives recipes in multiple languages.",
   "main": "index.js",
   "scripts": {
@@ -21,9 +22,11 @@
   "dependencies": {
     "axios": "^0.23.0",
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.11"
+    "mongoose": "^6.0.11",
+    "uuid-apikey": "^1.5.3"
   }
 }
