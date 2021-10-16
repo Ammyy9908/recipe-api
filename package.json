@@ -1,7 +1,10 @@
 {
   "name": "recipe-api",
   "version": "1.0.0",
-  "description": "A Recipie Rest API Gives recipies in multiple languages",
+  "repository":{
+    "type": "git",
+    "url":"https://github.com/Ammyy9908/recipe-api"},
+  "description": "A Recipe Rest API Gives recipes in multiple languages.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
