@@ -26,9 +26,15 @@ router
     );
     res.status(200).send(recent);
   })
-  .get("/recipes/filter?type=:type", verifyApi, async (req, res) => {
-    console.log(req.query);
-    res.status(200).send({ message: "Filtered recipes comes here" });
+  .get("/recipes/type/:food_type", verifyApi, async (req, res) => {
+    const allowed_food_types = ["non-veg", "veg"];
+    if (!allowed_food_types.includes(req.params.food_type.toLowerCase())) {
+      return res.status(401).send({ message: "Invalid Food type" });
+    }
+    const recipes = await Recipie.find({
+      type: req.params.food_type.toLowerCase(),
+    });
+    res.status(200).send(recipes);
   })
 
   .get("/recipes/all", verifyApi, async (req, res) => {
