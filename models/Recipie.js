@@ -6,6 +6,10 @@ const recipie_schema = new Schema(
       type: "String",
       required: true,
     },
+    type: {
+      type: "String",
+      required: true,
+    },
     snap: {
       type: "String",
       required: true,

@@ -17,7 +17,7 @@ const verifyApi = async (req, res, next) => {
 };
 
 router
-  .get("/recipies/recents", verifyApi, async (req, res) => {
+  .get("/recipes/recents", verifyApi, async (req, res) => {
     const recipies = await Recipie.find({});
     const hour = new Date().getHours();
 
@@ -26,7 +26,12 @@ router
     );
     res.status(200).send(recent);
   })
-  .get("/recipies/all", verifyApi, async (req, res) => {
+  .get("/recipes/filter?type=:type", verifyApi, async (req, res) => {
+    console.log(req.query);
+    res.status(200).send({ message: "Filtered recipes comes here" });
+  })
+
+  .get("/recipes/all", verifyApi, async (req, res) => {
     const recipies = await Recipie.find({});
     res.status(200).send(recipies);
   })
