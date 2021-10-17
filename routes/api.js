@@ -5,13 +5,13 @@ const verifyApi = async (req, res, next) => {
   const api_key = req.headers["x-api-key"];
 
   if (!api_key) {
-    return res.status(403).send({
+    return res.status(401).send({
       message: "Access denied provide a API Key in authorization headers",
     });
   }
   const user = await User.findOne({ api_key: api_key });
   if (!user) {
-    return res.status(403).send({ message: "Wrong API Key" });
+    return res.status(401).send({ message: "Wrong API Key" });
   }
   next();
 };
@@ -29,7 +29,7 @@ router
   .get("/recipes/type/:food_type", verifyApi, async (req, res) => {
     const allowed_food_types = ["non-veg", "veg"];
     if (!allowed_food_types.includes(req.params.food_type.toLowerCase())) {
-      return res.status(401).send({ message: "Invalid Food type" });
+      return res.status(400).send({ message: "Invalid Food type" });
     }
     const recipes = await Recipie.find({
       type: req.params.food_type.toLowerCase(),
@@ -64,7 +64,7 @@ router
       !publish_by
     ) {
       return res
-        .status(401)
+        .status(400)
         .send({ message: "Check all fields to add a new recipe" });
     }
 
